@@ -31,8 +31,8 @@ x_train, x_test, y_train ,y_test =train_test_split(data["questions"], categories
 
 import tensorflow_hub as hub
 
-#embed = hub.load('https://tfhub.dev/google/universal-sentence-encoder/4')
-embed = hub.load('models/universal-sentence-encoder_4')
+embed = hub.load('https://tfhub.dev/google/universal-sentence-encoder/4')
+#embed = hub.load('models/universal-sentence-encoder_4')
 
 def get_embeddings(x):
     embeddings = embed(x)

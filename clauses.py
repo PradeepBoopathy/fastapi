@@ -4,8 +4,8 @@ import tensorflow_hub as hub
 from numpy import asarray,argmax
 import os
 
-#embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
-embed = hub.load('models/universal-sentence-encoder_4')
+embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
+#embed = hub.load('models/universal-sentence-encoder_4')
 model = load_model(os.path.join(os.path.abspath(os.path.dirname(__file__)), "Question_Classifier.h5"))
 
 
