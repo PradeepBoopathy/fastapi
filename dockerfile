@@ -11,8 +11,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN chmod 444 test.py
 RUN chmod 444 requirements.txt
 
-ENV PORT 5000
+ENV PORT 4000
 
 ENTRYPOINT ["python"]
 
-CMD ["main.py"]
+CMD ["test.py"]
