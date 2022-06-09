@@ -63,12 +63,10 @@ def run(query: Query):
     # if it is alpha pass
     try:
         sequence = query.query
-        print(sequence)
         if len(sequence) != 0:
             if sequence[0] == '"' and sequence[-1] == '"': sequence = sequence[1:-1]
         if len(sequence) > 0:
             sequence = seqcorrection(sequence, df.columns.tolist())
-            print(sequence)
             if df is not None:
                 agent = Agent(preprocess_df(df))
                 if 'distinct' in sequence or 'unique' in sequence:
@@ -77,10 +75,10 @@ def run(query: Query):
                     query = agent.get_query(sequence)
                 query = query.replace('dataframe', 'df')
                 pysqldf = lambda q: sqldf(q, globals())
-                print(query)
                 result = pysqldf(query)
-                print(result)
-                return result.to_dict(orient='records')
+                resultset = {'query': query,
+                             'result': result.to_dict(orient='records')}
+                return resultset
             else:
                 raise DataframeEmptyerror
         else:
